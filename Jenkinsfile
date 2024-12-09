@@ -1,14 +1,10 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build and Run') {
+        stage('Hello') {
             steps {
-                // Compile the Java file
-                sh 'javac SquareCalculator.java'
-                
-                // Execute the Java program with input
-                sh 'echo "5" | java SquareCalculator'
+                sh 'build SquareCalculator.javac'
+                sh 'echo SquareCalculator'
             }
         }
     }
