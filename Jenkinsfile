@@ -2,32 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Build and Run') {
             steps {
-                // Clone the GitHub repository
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                // Compile the Java program
+                // Compile the Java file
                 sh 'javac SquareCalculator.java'
-            }
-        }
-
-        stage('Execute') {
-            steps {
-                // Run the Java program and provide input
+                
+                // Execute the Java program with input
                 sh 'echo "5" | java SquareCalculator'
             }
-        }
-    }
-
-    post {
-        always {
-            // Print console output or cleanup if needed
-            echo 'Pipeline finished!'
         }
     }
 }
